@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>Invoke.js</title>
+<style type="text/css">
+body { font-size:24px;line-height:1.5;color:#333;}
+h1,h2,h3,body { font-family:'gill sans','dejavu sans',verdana,sans-serif; }
+h1 { font-weight:bold; font-size:80px;letter-spacing:-5px;color:#000;margin-bottom:0; position:relative;}
+h1 b { color:#ccc; }
+</style>
+<script type="text/javascript" src="invoke.js"></script>
+</head>
+<body>
+<h1><b>|</b>Invoke.js</h1>
+<div id="status"></div>
+<pre><code>
+invoke( function(data, callback){ log(data); callback('arg1') } )
+        .then( function(data, callback){ log(data); callback('arg2') } )
+        .then( function(data, callback){ log(data); callback('arg3') } )
+        .fire('hello world', function(data) { log(data) } ) 
+</code></pre>
+<script>
+
+function log( msg ) {
+     document.getElementById('status').innerHTML += "> " + msg + '<br/>' 
+}
+
+              invoke( function(data, callback){ log( data ); callback('arg1') } )
+
+              .then( function(data, callback){ log( data ); callback('arg2') } ) 
+
+              .then( function(data, callback){ log( data ); callback('arg3') } )
+
+              .fire('hello world', function( data ) { log(data) } ) 
+
+</script>
+</body>
+</html>
+
